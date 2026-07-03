@@ -1,3 +1,5 @@
 venv/
 __pycache__/
 .env
+codewrite.md
+.DS_Store

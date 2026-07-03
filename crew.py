@@ -13,7 +13,9 @@ def patched_completion(*args, **kwargs):
     return old_completion(*args, **kwargs)
 litellm.completion = patched_completion
 
-os.environ["TIKTOKEN_CACHE_DIR"] = r"D:\tiktoken_cache"
+import tempfile
+
+os.environ["TIKTOKEN_CACHE_DIR"] = os.path.join(tempfile.gettempdir(), "tiktoken_cache")
 os.environ["CREWAI_TELEMETRY_DISABLED"] = "true"
 
 crew=Crew(
